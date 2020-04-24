@@ -1,0 +1,351 @@
+#Author: Kaushik
+#Keywords Summary :
+@ForgetPassword
+Feature: Forget Password
+  As a user i should be able to reset by password
+
+  Scenario Outline: Recover password with valid email id [90m# forgetPassword.feature:7[0m
+    [36mGiven [0m[36mI am on the v-thru admin login webpage[0m
+    [36mWhen [0m[36mI click on the forgetten passward link[0m
+    [36mThen [0m[36mI should navigate to password reset page[0m
+    [36mAnd [0m[36mI enter "<registeredEmail>"[0m
+    [36mAnd [0m[36mclick recover password[0m
+
+    Examples: 
+
+  @ForgetPassword
+  Scenario Outline: Recover password with valid email id [90m# forgetPassword.feature:16[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m         [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [32mWhen [0m[32mI click on the forgetten passward link[0m          [90m# ForgetPassword.i_click_on_the_forgetten_passward_link()[0m
+    [32mThen [0m[32mI should navigate to password reset page[0m        [90m# ForgetPassword.i_should_navigate_to_password_reset_page()[0m
+    [32mAnd [0m[32mI enter "[0m[32m[1mk@mail.com[0m[32m"[0m                             [90m# ForgetPassword.i_enter(String)[0m
+    [32mAnd [0m[32mclick recover password[0m                           [90m# ForgetPassword.click_recover_password()[0m
+
+  #We assume invalid email format would throw error
+  Scenario Outline: Email field format validation [90m# forgetPassword.feature:19[0m
+    [36mGiven [0m[36mI am on the v-thru admin login webpage[0m
+    [36mWhen [0m[36mI click on the forgetten passward link[0m
+    [36mThen [0m[36mI should navigate to password reset page[0m
+    [36mAnd [0m[36mI enter "<invalidFormatEmail>"[0m
+    [36mThen [0m[36mI receive error[0m
+
+    Examples: 
+
+  @ForgetPassword
+  Scenario Outline: Email field format validation [90m# forgetPassword.feature:28[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m  [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [32mWhen [0m[32mI click on the forgetten passward link[0m   [90m# ForgetPassword.i_click_on_the_forgetten_passward_link()[0m
+    [32mThen [0m[32mI should navigate to password reset page[0m [90m# ForgetPassword.i_should_navigate_to_password_reset_page()[0m
+    [32mAnd [0m[32mI enter "[0m[32m[1mabc12.com[0m[32m"[0m                       [90m# ForgetPassword.i_enter(String)[0m
+    [32mThen [0m[32mI receive error[0m                          [90m# ForgetPassword.i_receive_error()[0m
+[31mFailure in after hook:[0m[31mCukeHooks.tearDown()[0m
+[31mMessage: [0m[31morg.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=81.0.4044.122)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'MR_ROBOT', ip: '127.0.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_101'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 81.0.4044.20 (f006328e39a97..., userDataDir: C:\Users\KAUSHIK\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:63244}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 5b7e133a802aa713cf88538436856ef8
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:442)
+	at com.vthru.managers.WebDriverManager.closeDriver(WebDriverManager.java:98)
+	at com.vthru.stepDefinitions.CukeHooks.tearDown(CukeHooks.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+	at cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)
+	at cucumber.runtime.Runtime.runHooks(Runtime.java:212)
+	at cucumber.runtime.Runtime.runAfterHooks(Runtime.java:206)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:46)
+	at cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)
+	at org.junit.runners.Suite.runChild(Suite.java:127)
+	at org.junit.runners.Suite.runChild(Suite.java:26)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at cucumber.runtime.junit.ExamplesRunner.run(ExamplesRunner.java:59)
+	at org.junit.runners.Suite.runChild(Suite.java:127)
+	at org.junit.runners.Suite.runChild(Suite.java:26)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at cucumber.runtime.junit.ScenarioOutlineRunner.run(ScenarioOutlineRunner.java:53)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at cucumber.api.junit.Cucumber.run(Cucumber.java:100)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+[0m
+      [31morg.openqa.selenium.WebDriverException: chrome not reachable
+        (Session info: chrome=81.0.4044.122)
+      Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+      System info: host: 'MR_ROBOT', ip: '127.0.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_101'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 81.0.4044.20 (f006328e39a97..., userDataDir: C:\Users\KAUSHIK\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:63244}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+      Session ID: 5b7e133a802aa713cf88538436856ef8
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+      	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+      	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+      	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:442)
+      	at com.vthru.managers.WebDriverManager.closeDriver(WebDriverManager.java:98)
+      	at com.vthru.stepDefinitions.CukeHooks.tearDown(CukeHooks.java:38)
+      	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+      	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+      	at java.lang.reflect.Method.invoke(Unknown Source)
+      	at cucumber.runtime.Utils$1.call(Utils.java:40)
+      	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+      	at cucumber.runtime.Utils.invoke(Utils.java:34)
+      	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+      	at cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)
+      	at cucumber.runtime.Runtime.runHooks(Runtime.java:212)
+      	at cucumber.runtime.Runtime.runAfterHooks(Runtime.java:206)
+      	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:46)
+      	at cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)
+      	at org.junit.runners.Suite.runChild(Suite.java:127)
+      	at org.junit.runners.Suite.runChild(Suite.java:26)
+      	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+      	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+      	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+      	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+      	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+      	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+      	at cucumber.runtime.junit.ExamplesRunner.run(ExamplesRunner.java:59)
+      	at org.junit.runners.Suite.runChild(Suite.java:127)
+      	at org.junit.runners.Suite.runChild(Suite.java:26)
+      	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+      	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+      	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+      	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+      	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+      	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+      	at cucumber.runtime.junit.ScenarioOutlineRunner.run(ScenarioOutlineRunner.java:53)
+      	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)
+      	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)
+      	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+      	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+      	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+      	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+      	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+      	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+      	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)
+      	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)
+      	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)
+      	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+      	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+      	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+      	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+      	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+      	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+      	at cucumber.api.junit.Cucumber.run(Cucumber.java:100)
+      	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+      	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+      	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+      	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)
+      	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+      	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+      [0m
+
+  @ForgetPassword
+  Scenario Outline: Email field format validation [90m# forgetPassword.feature:29[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m  [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [31mWhen [0m[31mI click on the forgetten passward link[0m   [90m# ForgetPassword.i_click_on_the_forgetten_passward_link()[0m
+      [31morg.openqa.selenium.WebDriverException: chrome not reachable
+        (Session info: chrome=81.0.4044.122)
+      Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+      System info: host: 'MR_ROBOT', ip: '127.0.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_101'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 81.0.4044.20 (f006328e39a97..., userDataDir: C:\Users\KAUSHIK\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:63244}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+      Session ID: 5b7e133a802aa713cf88538436856ef8
+      *** Element info: {Using=xpath, value=//a[contains(text(),'Forgotten password?')]}
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+      	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+      	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+      	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+      	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+      	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+      	at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
+      	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+      	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+      	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+      	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+      	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:670)
+      	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:666)
+      	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+      	at com.vthru.pageObjects.LoginPage.forgetPassword(LoginPage.java:129)
+      	at com.vthru.stepDefinitions.ForgetPassword.i_click_on_the_forgetten_passward_link(ForgetPassword.java:42)
+      	at ✽.When I click on the forgetten passward link(forgetPassword.feature:21)
+      [0m
+    [36mThen [0m[36mI should navigate to password reset page[0m [90m# ForgetPassword.i_should_navigate_to_password_reset_page()[0m
+    [36mAnd [0m[36mI enter "[0m[36m[1mAS_21@gmail[0m[36m"[0m                     [90m# ForgetPassword.i_enter(String)[0m
+    [36mThen [0m[36mI receive error[0m                          [90m# ForgetPassword.i_receive_error()[0m
+
+  Scenario: Ability to return to login page          [90m# forgetPassword.feature:32[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m     [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [32mWhen [0m[32mI click on the forgetten passward link[0m      [90m# ForgetPassword.i_click_on_the_forgetten_passward_link()[0m
+    [32mThen [0m[32mI should navigate to password reset page[0m    [90m# ForgetPassword.i_should_navigate_to_password_reset_page()[0m
+    [32mAnd [0m[32mI click on the sign_in_existing_account link[0m [90m# ForgetPassword.i_click_on_the_sign_in_existing_account_link()[0m
+    [32mThen [0m[32mI should navigate to login page[0m             [90m# ForgetPassword.i_should_navigate_to_login_page()[0m
+#Author: Kaushik
+#Keywords Summary :
+@Login
+Feature: Admin Login Feature
+  As a admin user i should be able to login to V-thru Web app
+
+  @tag1
+  Scenario Outline: Login with Valid credentials                      [90m# login.feature:9[0m
+    [36mGiven [0m[36mI am on the v-thru admin login webpage[0m
+    [36mWhen [0m[36mI enter "<username>" and "<password>"[0m
+    [36mAnd [0m[36mclick on login to dashboard[0m
+    [36mThen [0m[36mI should be able to navigate successfully to admin dashboard[0m
+
+    Examples: 
+
+  @Login @tag1
+  Scenario Outline: Login with Valid credentials                      [90m# login.feature:18[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m                      [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [32mWhen [0m[32mI enter "[0m[32m[1madmin[0m[32m" and "[0m[32m[1madmin[0m[32m"[0m                                  [90m# Login.i_enter_and(String,String)[0m
+    [32mAnd [0m[32mclick on login to dashboard[0m                                   [90m# Login.click_on_login_to_dashboard()[0m
+    [32mThen [0m[32mI should be able to navigate successfully to admin dashboard[0m [90m# Login.i_should_be_able_to_navigate_successfully_to_admin_dashboard()[0m
+
+  @Login @tag1
+  Scenario Outline: Login with Valid credentials                      [90m# login.feature:19[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m                      [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [32mWhen [0m[32mI enter "[0m[32m[1msuperadmin[0m[32m" and "[0m[32m[1msuperadmin[0m[32m"[0m                        [90m# Login.i_enter_and(String,String)[0m
+    [32mAnd [0m[32mclick on login to dashboard[0m                                   [90m# Login.click_on_login_to_dashboard()[0m
+    [32mThen [0m[32mI should be able to navigate successfully to admin dashboard[0m [90m# Login.i_should_be_able_to_navigate_successfully_to_admin_dashboard()[0m
+
+  # We assume password mismatch
+  @InvalidLogin
+  Scenario Outline: Login failure in case of username and password mismatch [90m# login.feature:25[0m
+    [36mGiven [0m[36mI am on the v-thru admin login webpage[0m
+    [36mWhen [0m[36mI enter "<username>" and "<password>"[0m
+    [36mAnd [0m[36mclick on login to dashboard[0m
+    [36mThen [0m[36mI should be thrown invalid credentials error[0m
+
+    Examples: 
+
+  @Login @InvalidLogin
+  Scenario Outline: Login failure in case of username and password mismatch [90m# login.feature:35[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m                            [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [32mWhen [0m[32mI enter "[0m[32m[1madmin[0m[32m" and "[0m[32m[1madmin1[0m[32m"[0m                                       [90m# Login.i_enter_and(String,String)[0m
+    [32mAnd [0m[32mclick on login to dashboard[0m                                         [90m# Login.click_on_login_to_dashboard()[0m
+    [32mThen [0m[32mI should be thrown invalid credentials error[0m                       [90m# Login.i_should_be_thrown_invalid_credentials_error()[0m
+
+  @Login @InvalidLogin
+  Scenario Outline: Login failure in case of username and password mismatch [90m# login.feature:36[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m                            [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [32mWhen [0m[32mI enter "[0m[32m[1m$%_invalid[0m[32m" and "[0m[32m[1msuperadmin1[0m[32m"[0m                             [90m# Login.i_enter_and(String,String)[0m
+    [32mAnd [0m[32mclick on login to dashboard[0m                                         [90m# Login.click_on_login_to_dashboard()[0m
+    [32mThen [0m[32mI should be thrown invalid credentials error[0m                       [90m# Login.i_should_be_thrown_invalid_credentials_error()[0m
+
+  # We assume username cannot start with special characters
+  @tag3
+  Scenario Outline: Error scenario with invalid/empty username [90m# login.feature:40[0m
+    [36mGiven [0m[36mI am on the v-thru admin login webpage[0m
+    [36mWhen [0m[36mI enter "<invalid_username>" and "<password>"[0m
+    [36mAnd [0m[36mclick on login to dashboard[0m
+    [36mThen [0m[36mI should be thrown invalid credentials error[0m
+
+    Examples: 
+
+  @Login @tag3
+  Scenario Outline: Error scenario with invalid/empty username [90m# login.feature:50[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m               [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [32mWhen [0m[32mI enter "[0m[32m[1m[0m[32m" and "[0m[32m[1madmin[0m[32m"[0m                                [90m# Login.i_enter_and(String,String)[0m
+    [32mAnd [0m[32mclick on login to dashboard[0m                            [90m# Login.click_on_login_to_dashboard()[0m
+    [31mThen [0m[31mI should be thrown invalid credentials error[0m          [90m# Login.i_should_be_thrown_invalid_credentials_error()[0m
+      [31morg.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".alert\-danger"}
+        (Session info: chrome=81.0.4044.122)
+      For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+      Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+      System info: host: 'MR_ROBOT', ip: '127.0.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_101'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 81.0.4044.20 (f006328e39a97..., userDataDir: C:\Users\KAUSHIK\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:63425}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+      Session ID: 178b8cc80c81f2103299c2c3416951f5
+      *** Element info: {Using=class name, value=alert-danger}
+      	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+      	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+      	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+      	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElementByClassName(RemoteWebDriver.java:412)
+      	at org.openqa.selenium.By$ByClassName.findElement(By.java:389)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+      	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+      	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+      	at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
+      	at com.vthru.pageObjects.LoginPage.isErrorMessage(LoginPage.java:154)
+      	at com.vthru.stepDefinitions.Login.i_should_be_thrown_invalid_credentials_error(Login.java:63)
+      	at ✽.Then I should be thrown invalid credentials error(login.feature:45)
+      [0m
+
+  @Login @tag3
+  Scenario Outline: Error scenario with invalid/empty username [90m# login.feature:51[0m
+    [32mGiven [0m[32mI am on the v-thru admin login webpage[0m               [90m# Login.i_am_on_the_v_thru_admin_login_webpage()[0m
+    [32mWhen [0m[32mI enter "[0m[32m[1m$%_invalid[0m[32m" and "[0m[32m[1msuperadmin[0m[32m"[0m                 [90m# Login.i_enter_and(String,String)[0m
+    [32mAnd [0m[32mclick on login to dashboard[0m                            [90m# Login.click_on_login_to_dashboard()[0m
+    [32mThen [0m[32mI should be thrown invalid credentials error[0m          [90m# Login.i_should_be_thrown_invalid_credentials_error()[0m
